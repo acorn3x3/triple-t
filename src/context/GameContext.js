@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from 'react';
 const GameContext = createContext();
 
-import initialBoards from '../boards-data';
+import initialSpaces from '../spaces-data';
 
 const GameProvider = ({ children }) => {
-  const [board, setBoard] = useState(initialBoards);
+  const [board, setBoard] = useState(initialSpaces);
   //const [space, setSpace] = useState('');
   //const [player, setPlayer] = useState(initialBoards);
   //const [win, setWin] = useState(initialBoards);
