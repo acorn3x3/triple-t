@@ -1,19 +1,38 @@
 import { createContext, useContext, useState } from 'react';
 const GameContext = createContext();
 
-import initialSpaces from '../spaces-data';
-
 const GameProvider = ({ children }) => {
-  const [board, setBoard] = useState(initialSpaces);
-  //const [space, setSpace] = useState('');
-  //const [player, setPlayer] = useState(initialBoards);
-  //const [win, setWin] = useState(initialBoards);
-  //const [reset, setReset] = useState(initialBoards);
-  //const [board, setBoard] = useState(initialBoards);
-  //const [gameMessage, setGameMessage] = useState('your turn X')
-  //const [isActive, setIsActive] = useState(true);
+  const [board, setBoard] = useState([
+    { space: 0, content: '' },
+    { space: 1, content: '' },
+    { space: 2, content: '' },
+    { space: 3, content: '' },
+    { space: 4, content: '' },
+    { space: 5, content: '' },
+    { space: 6, content: '' },
+    { space: 7, content: '' },
+    { space: 8, content: '' },
+  ]);
+  const [currentPlayer, setCurrentPlayer] = useState();
+  const [active, setActive] = useState();
+  const [gameMessage, setGameMessage] = useState();
 
-  return <GameContext.Provider value={{ board, setBoard }}>{children}</GameContext.Provider>;
+  return (
+    <GameContext.Provider
+      value={{
+        currentPlayer,
+        setCurrentPlayer,
+        active,
+        setActive,
+        gameMessage,
+        setGameMessage,
+        board,
+        setBoard,
+      }}
+    >
+      {children}
+    </GameContext.Provider>
+  );
 };
 const useGameContext = () => {
   const context = useContext(GameContext);
