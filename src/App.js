@@ -1,10 +1,20 @@
 import './App.css';
 
-// import Game from './components/Game';
-import { GameProvider } from './context/GameContext';
+import Board from './components/Board';
+// import { useGameContext } from 'react';
+import { useGameContext } from './context/GameContext';
 
 function App() {
-  return <GameProvider>{/* <Game /> */}</GameProvider>;
+  const { board, setBoard } = useGameContext();
+  const onSquareClick = (squareNum) => {
+    const content = board[squareNum];
+    const newContent = content === '' ? 'x' : content === 'x' ? 'o' : '';
+    const newBoard = board.slice();
+    newBoard[squareNum] = newContent;
+    setBoard(newBoard);
+  };
+
+  return <Board onClick={onSquareClick} />;
 }
 
 export default App;
