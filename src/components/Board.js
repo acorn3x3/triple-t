@@ -11,7 +11,6 @@ export default function Board() {
     nextSquares[i] = 'X';
     setSquares(nextSquares);
   }
- 
 
   return (
     <div className="gameboard">

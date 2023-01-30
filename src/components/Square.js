@@ -1,9 +1,9 @@
 // import { setValue } from 'react';
 import './Square.css';
 
-export default function Square({ value, handleClick }) {
+export default function Square({ value, onSquareClick }) {
   return (
-    <button className="square" onClick={handleClick}>
+    <button className="square" onClick={onSquareClick}>
       {value}
     </button>
   );
