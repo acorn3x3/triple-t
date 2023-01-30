@@ -21,6 +21,13 @@ export default function Board() {
     setSquares(nextSquares);
     setXPlayer(!xPlayer);
   }
+  const winner = caclulateWinner(squares);
+  let status;
+  if (winner) {
+    status = 'Winner: ' + winner;
+  } else {
+    status = 'Next player: ' + (xPlayer ? 'X' : 'O');
+  }
   function caclulateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -43,6 +50,8 @@ export default function Board() {
 
   return (
     <div className="gameboard">
+      <div className="statusboard"></div>
+      {status}
       <div className="board">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
