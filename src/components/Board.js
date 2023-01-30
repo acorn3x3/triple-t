@@ -2,12 +2,13 @@
 import './Board.css';
 import { useState } from 'react';
 import Square from './Square';
+import { useGameContext } from '../context/GameContext';
 
 // import { useGameContext } from '../context/GameContext';
 
 export default function Board() {
   const [xPlayer, setXPlayer] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const { squares, setSquares } = useGameContext();
   function handleClick(i) {
     if (squares[i] || caclulateWinner(squares)) {
       return;
