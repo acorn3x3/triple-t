@@ -5,11 +5,20 @@ import Square from './Square';
 // import { useGameContext } from '../context/GameContext';
 
 export default function Board() {
+  const [xPlayer, setXPlayer] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   function handleClick(i) {
+    if (squares[i]) {
+      return;
+    }
     const nextSquares = squares.slice();
-    nextSquares[i] = 'X';
+    if (xPlayer) {
+      nextSquares[i] = 'X';
+    } else {
+      nextSquares[i] = 'O';
+    }
     setSquares(nextSquares);
+    setXPlayer(!xPlayer);
   }
 
   return (
