@@ -2,13 +2,14 @@
 import './Board.css';
 import { useState } from 'react';
 import Square from './Square';
+
 // import { useGameContext } from '../context/GameContext';
 
 export default function Board() {
   const [xPlayer, setXPlayer] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   function handleClick(i) {
-    if (squares[i]) {
+    if (squares[i] || caclulateWinner(squares)) {
       return;
     }
     const nextSquares = squares.slice();
@@ -19,6 +20,25 @@ export default function Board() {
     }
     setSquares(nextSquares);
     setXPlayer(!xPlayer);
+  }
+  function caclulateWinner(squares) {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 7],
+      [2, 4, 6],
+      [0, 4, 8],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
   }
 
   return (
