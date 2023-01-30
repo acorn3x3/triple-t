@@ -16,43 +16,52 @@
   // const [spaceEight, setSpaceEight] = useState([]);
   // const [spaceNine, setSpaceNine] = useState([]);
 
+// import Board from './components/Board2';
+// import { useGameContext } from 'react';
+  // const onSquareClick = (squareNum) => {
+  //   const content = board[squareNum];
+  //   const newContent = content === '' ? 'x' : content === 'x' ? 'o' : '';
+  //   const newBoard = board.slice();
+  //   newBoard[squareNum] = newContent;
+  //   setBoard(newBoard);
+   // <Board onClick={onSquareClick} />
+// }
 
-
-export default [
-  {
-    card: 0,
-    symbol: 'X',
-  },
-  {
-    card: 1,
-    symbol: 'X',
-  },
-  {
-    card: 2,
-    symbol: 'X',
-  },
-  {
-    card: 3,
-    symbol: 'X',
-  },
-  {
-    card: 4,
-    symbol: 'X',
-  },
-  {
-    card: 5,
-    symbol: 'O',
-  },
-  {
-    card: 6,
-    symbol: 'O',
-  },
-  {
-    card: 7,
-    symbol: 'O',
-  },
-  {
-    card: 8,
-    symbol: 'O',
-  },
-];
+// export default [
+//   {
+//     card: 0,
+//     symbol: 'X',
+//   },
+//   {
+//     card: 1,
+//     symbol: 'X',
+//   },
+//   {
+//     card: 2,
+//     symbol: 'X',
+//   },
+//   {
+//     card: 3,
+//     symbol: 'X',
+//   },
+//   {
+//     card: 4,
+//     symbol: 'X',
+//   },
+//   {
+//     card: 5,
+//     symbol: 'O',
+//   },
+//   {
+//     card: 6,
+//     symbol: 'O',
+//   },
+//   {
+//     card: 7,
+//     symbol: 'O',
+//   },
+//   {
+//     card: 8,
+//     symbol: 'O',
+//   },
+// ];
